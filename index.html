@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC Stenography</title>
+
+    <link rel="stylesheet" href="1.2.css">
+</head>
+<body>
+
+<div class="container" id="formBox">
+
+    <h1>SSC STENOGRAPHY COURSE</h1>
+    <p>Objective Test - Tick the Correct Option</p>
+
+    <input type="text" id="name" placeholder="Full Name">
+
+    <input type="email" id="email" placeholder="Email">
+
+    <input type="text" id="address" placeholder="Address">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="startQuiz()">Continue</button>
+
+</div>
+
+<div class="container" id="quiz">
+
+    <h2>English</h2>
+</br>
+    
+    <h1 class="question-text">Q1. synonymof "Laconic"</h1>
+            
+            <ul class="options-list">
+                <li class="option-item">
+                    <input type="radio" id="opt1" name="steno_q1" value="A">
+                    <label for="opt1" class="option-label">A) Talkative</label>
+                </li>
+                <li class="option-item">
+                    <input type="radio" id="opt2" name="steno_" value="B">
+                    <label for="opt2" class="option-label">B) Brief</label>
+                </li>
+                <li class="option-item">
+                    <input type="radio" id="opt3" name="steno_q1" value="C">
+                    <label for="opt3" class="option-label">C) Loud</label>
+                </li>
+                <li class="option-item">
+                    <input type="radio" id="opt4" name="steno_q1" value="D">
+                    <label for="opt4" class="option-label">D) Rude</label>
+                </li>
+            </ul>
+
+    <button onclick="getLocation()"> Next Question  to the permission</button>
+
+    <p id="msg"></p>
+
+</div>
+
+<script>
+document.getElementById("quiz").style.display="none";
+
+function startQuiz(){
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let address=document.getElementById("address").value;
+let password=document.getElementById("password").value;
+
+if(name=="" || email=="" || address=="" || password==""){
+alert("Please fill all details");
+return;
+}
+
+document.getElementById("formBox").style.display="none";
+document.getElementById("quiz").style.display="block";
+
+}
+
+
+function getLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+document.getElementById("msg").innerHTML=
+"Latitude : "+position.coords.latitude+
+"<br>Longitude : "+position.coords.longitude; 
+
+});
+
+}
+
+}
+</script>
+
+</body>
+</html>
